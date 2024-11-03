@@ -1,20 +1,21 @@
-<ion-header  [translucent]="true" >
+<ion-header [translucent]="true">
   <ion-toolbar color="warning">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-      <ion-label>Blog</ion-label>
+    <ion-label>Blog</ion-label>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   
-  <ion-card color="light">
-    <img src="https://ciclovivo.com.br/wp-content/uploads/2024/05/geracao-energia-solar-ciclo.jpg" />
+  <ion-card color="light" *ngFor="let post of blogPosts">
+    <img [src]="post.image" />
     <ion-card-header>
-      <ion-card-title>Limpeza de Placas Solares Garante Eficiência do Sistema</ion-card-title>
+      <ion-card-title>{{ post.title }}</ion-card-title>
     </ion-card-header>
-    <ion-button fill="clear" (click)="openExternalLink()">Saiba Mais</ion-button>
+    <ion-button fill="clear" (click)="openExternalLink(post.link)">Saiba Mais</ion-button>
   </ion-card>
 
 </ion-content>
+
