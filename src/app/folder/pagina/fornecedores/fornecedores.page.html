@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-label>Fornecedores</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title color="primary">Contato dos Fornecedores</ion-card-title>
+    </ion-card-header>
+    <ion-card-content color="light" >
+      <ion-list *ngFor="let post of fornecedores">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-avatar>
+              <img [src]="post.image" />
+            </ion-avatar>
+          </ion-thumbnail>
+        <ion-label>
+          <ion-label>{{ post.title }}</ion-label>
+          <ion-label>{{ post.localizacao}}</ion-label>      
+        <ion-button fill="clear" (click)="openExternalLink(post.link)">Saiba Mais</ion-button>
+        </ion-label>
+          </ion-item>
+        </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+
