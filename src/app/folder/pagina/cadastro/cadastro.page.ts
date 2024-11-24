@@ -6,11 +6,11 @@ import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-cadastro',
+  templateUrl: './cadastro.page.html',
+  styleUrls: ['./cadastro.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class CadastroPage implements OnInit {
   public userLogin: User = {};
   public userRegister: User = {};
   private loading: any;
@@ -26,45 +26,21 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {}
 
-  // async login(){
-  //   await this.showLoading();
-  //   this.router.navigate(['/main']);
-  //   try{
-  //     await this.authService.register(this.userLogin);
-  //   } catch(error: any){
-  //     error.message = "Erro ao Entrar";
-  //     let errormessage = error.message || error.getLocalizedMessage();
-  //     this.showToast(errormessage)
-      
-  //   } finally {
-      
-  //     this.loading.dismiss();
-  //   }
-  // }
-
-  async login() {
+  async login(){
     await this.showLoading();
-    
-    try {
-      const userCredential = await this.afAuth.signInWithEmailAndPassword(
-        this.userLogin.email || '', // Use um valor vazio caso o email seja undefined
-        this.userLogin.password || '' // Use um valor vazio caso a senha seja undefined
-      );
-  
-      if (userCredential.user) {
-        // Redireciona o usuário para a tela principal
-        this.router.navigate(['/main']);
-        console.log(this.userLogin.email, this.userLogin.password);
-        this.showToast('Login realizado com sucesso!');
-      }
-    } catch (error: any) {
-      const errorMessage = error.message || 'Erro ao realizar login.';
-      this.showToast(errorMessage);
+    try{
+      await this.authService.register(this.userRegister);
+
+      this.navCrtl.navigateRoot("main");
+    } catch(error: any){
+      error.message = "Erro ao Entrar";
+      let errormessage = error.message || error.getLocalizedMessage();
+      this.showToast(errormessage)
+      
     } finally {
       this.loading.dismiss();
     }
   }
-  
 
   async register(){
     await this.showLoading();
@@ -76,7 +52,7 @@ export class LoginPage implements OnInit {
       let errormessage = e.message || e.getLocalizedMessage();
       this.showToast(errormessage)
     } finally {
-      this.router.navigate(['/main']);
+      this.router.navigate(['/login']);
       this.loading.dismiss();
     }
     
@@ -95,5 +71,18 @@ export class LoginPage implements OnInit {
 
     });
     return this.loading.present();
+  }
+
+  formValidation(){
+    if(!this.userLogin.email){
+      this.showToast('Digite um Email');
+      return false;
+    }
+
+    if(!this.userLogin.password){
+      this.showToast('Digite uma Senha');
+      return false;
+    }
+    return false;
   }
 }

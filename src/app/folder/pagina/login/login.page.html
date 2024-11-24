@@ -1,39 +1,20 @@
 <ion-header [translucent]="true">
 </ion-header>
 
-<ion-content [fullscreen]="true">
- 
-  <!-- Icone de Usuario -->
- 
-  <ion-toolbar>
-    <ion-img src="assets\icon\key.png" class="image-center"></ion-img>
-
-  </ion-toolbar>
-  
-  <ion-list>
-
-    <!-- Caixa de Entrada do Email -->
-    
+<ion-content style="--background: rgb(255, 195, 103);">
+  <div class="login-container">
+    <h1 class="login-title">Login</h1>
     <ion-item>
-      <ion-input label="Email" label-placement="floating" fill="solid" placeholder="Digite seu Email"><ion-input-password-toggle slot="end"></ion-input-password-toggle>
-      </ion-input>
+      <ion-label position="floating">E-mail</ion-label>
+      <ion-input type="email" placeholder="Digite seu e-mail" required [(ngModel)]="userLogin.email"></ion-input>
     </ion-item>
-    
-    <br/>
-  <!-- Caixa de Entrada da Senha -->
     <ion-item>
-      <ion-input label="Senha" label-placement="floating" fill="solid" placeholder="Digite seu Email"><ion-input-password-toggle slot="end"></ion-input-password-toggle>
-      </ion-input>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password" placeholder="Digite sua senha" required [(ngModel)]="userLogin.password"> <ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
     </ion-item>
-    <br/>
-
-    <!-- Botão de Login -->
-    <ion-item>
-      <ion-button size="medium">Login</ion-button>
-    </ion-item>
-    <br/>
-
-  </ion-list>
-
-
+    <div class="button-container">
+      <ion-button expand="block" color="primary" class="login-button" (click)="login()">Login</ion-button>
+      <ion-button expand="block" color="light" class="register-button" [routerLink]="['/cadastro']">Cadastrar-se</ion-button>
+    </div>
+  </div>
 </ion-content>

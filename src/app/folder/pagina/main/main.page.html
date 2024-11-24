@@ -1,0 +1,96 @@
+<ion-header  [translucent]="true" >
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+      <ion-label>SmartSun</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <h3 class="title">Investimento em Energia Solar</h3>
+
+    <!-- Campo para Valor da Conta de Luz -->
+    <ion-item>
+      <ion-label position="floating">Valor da Conta de Luz (R$)</ion-label>
+      <ion-input type="number" placeholder="Ex: 250" [(ngModel)]="valorConta"></ion-input>
+    </ion-item>
+
+    <!-- Campo para kWh gastos por mês -->
+    <ion-item>
+      <ion-label position="floating">Consumo Mensal (kWh)</ion-label>
+      <ion-input type="number" placeholder="Ex: 300" [(ngModel)]="consumoMensal"></ion-input>
+    </ion-item>
+
+    <!-- Campo para Tamanho da Propriedade -->
+    <ion-item>
+      <ion-label position="floating">Tamanho da Propriedade (m²)</ion-label>
+      <ion-input type="number" placeholder="Ex: 100" [(ngModel)]="tamanhoPropriedade"></ion-input>
+    </ion-item>
+    
+    <!-- Campo para Definir HSP(Horas Sol Pleno) -->
+    <ion-item>
+      <ion-label position="floating">Horas de Sol Pleno(HSP)</ion-label>
+      <ion-input type="number" placeholder="Ex: 5" [(ngModel)]="hspDiaria"></ion-input>
+    </ion-item>
+
+
+    <!-- Botão para Definir HSP -->
+    <div class="button-container">
+      <ion-button expand="block" color="secondary" (click)="ajustarHSP()">Definir HSP</ion-button>
+    </div>
+
+    <!-- Botão para Calcular -->
+    <div class="button-container">
+      <ion-button expand="block" color="secondary" (click)="calcular()">Calcular</ion-button>
+    </div>
+
+    <!-- Exibir mensagem de erro -->
+    <div *ngIf="mensagemErro" class="erro-container">
+      <ion-label color="danger">{{ mensagemErro }}</ion-label>
+    </div>
+    
+
+    <!-- Resultados -->
+    <div *ngIf="resultado" class="resultado-container">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Resultado do Cálculo</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label [ngClass]="investimentoViavel === 'Viável' ? 'resultado-viavel' : 'resultado-nao-viavel'">
+              Investimento {{ investimentoViavel }}
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label class="resultado-valores">Custo da Instalação: R$ {{ custoInstalacao?.toFixed(2) }}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label class="resultado-valores">Payback: {{ payback?.toFixed(2) }} anos</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label class="resultado-valores">Redução da Conta: {{ reducaoConta?.toFixed(2) }}%</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label class="resultado-valores">Economia Anual: R$ {{ economiaAnual?.toFixed(2) }}</ion-label>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+
+  </div>
+</ion-content>
+
+<!-- Resultado -->
+    <!-- <p><ion-label *ngIf="investimentoViavel" class="resultado-container"> Investimento {{ investimentoViavel }}</ion-label></p>
+
+    <p><ion-label *ngIf="custoInstalacao" class="resultado-container"> Custo da Instalação: R$ {{ custoInstalacao.toFixed(2) }}</ion-label></p>
+
+    <p><ion-label *ngIf="payback" class="resultado-container"> Payback: {{ payback.toFixed(2) }} anos</ion-label></p>
+
+    <p><ion-label *ngIf="reducaoConta" class="resultado-container"> Redução da Conta: {{ reducaoConta.toFixed(2) }}%</ion-label></p>
+
+    <p><ion-label *ngIf="economiaAnual" class="resultado-container"> Economia Anual Estimada: R$ {{ economiaAnual.toFixed(2) }}</ion-label></p> -->

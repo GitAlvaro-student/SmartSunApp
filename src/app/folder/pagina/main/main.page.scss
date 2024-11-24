@@ -1,0 +1,92 @@
+.resultado-container {
+  margin-top: 20px;
+}
+
+ion-card {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc; /* Borda leve para destacar */
+}
+
+ion-card-header {
+  background-color: #ffcd02; /* Cor de fundo do cabeçalho */
+  color: #333; /* Cor do texto no cabeçalho */
+}
+
+ion-card-title {
+  font-weight: bold;
+  color: #333; /* Cor do título do cartão */
+}
+
+ion-card-content {
+  background-color: #e3e3e3; /* Cor de fundo do conteúdo */
+}
+
+ion-item {
+  margin-bottom: 10px;
+}
+
+ion-label {
+  font-weight: bold;
+  color: #333; /* Cor padrão dos labels */
+}
+
+.resultado-viavel {
+  color: green; /* Cor para 'Investimento Viável' */
+}
+
+.resultado-nao-viavel {
+  color: red; /* Cor para 'Investimento Não Viável' */
+}
+
+.resultado-valores {
+  color: #000000; /* Cor para os valores numéricos */
+}
+
+
+  .container {
+    padding: 5px;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .button-container {
+    margin-top: 20px;
+  }
+  
+  
+  p {
+    font-size: 1.2em;
+    text-align: center;
+    color: #333;
+  }
+  
+  
+  #container {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #8c8c8c;
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
