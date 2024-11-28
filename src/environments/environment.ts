@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyCwGoWvkJXGWmKnPn8hiTuigPJZOMrw9BI",
-    authDomain: "cruddnvionicapp.firebaseapp.com",
-    projectId: "cruddnvionicapp",
-    storageBucket: "cruddnvionicapp.firebasestorage.app",
-    messagingSenderId: "83725191036",
-    appId: "1:83725191036:web:27c1ab5b2d51b6372906f9",
-    measurementId: "G-M2W9BM9SW3"
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "",
+    measurementId: ""
   }
 };
 
